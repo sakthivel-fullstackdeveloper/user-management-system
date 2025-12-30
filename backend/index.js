@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database');
+const authRoutes = require("./routes/authRoutes");
 
 dotenv.config();
 
@@ -15,6 +16,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
+
+app.use("/api/auth", authRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
