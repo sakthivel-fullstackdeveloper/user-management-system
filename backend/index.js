@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const authRoutes = require("./routes/authRoutes");
 const adminRouter = require('./routes/adminRoutes');
+const userRouter = require('./routes/userRoutes');
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use("/auth", authRoutes);
 app.use("/admin", adminRouter);
+app.use("/user",userRouter)
 
 
 const PORT = process.env.PORT || 3000;
