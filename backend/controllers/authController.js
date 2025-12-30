@@ -73,9 +73,9 @@ const login = async (req, res) => {
 
 const signup = async (req, res) => {
   try {
-    const { Name, email, password } = req.body;
+    const { Name, email, password, role } = req.body;
 
-    if (!Name || !email || !password) {
+    if (!Name || !email || !password || !role) {
       return res.status(400).json({
         success: false,
         message: "Name, email and password are required",
@@ -96,7 +96,7 @@ const signup = async (req, res) => {
       Name,
       email,
       password: hashedPassword,
-      role: "user",         
+      role: role,         
       status: "active"
     });
 
@@ -122,4 +122,41 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup,login};
+const getMe = async (req, res) => {
+  try {
+ 
+    const user = await User.findById(req.user.id).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      user,
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const logout = async (req, res) => {
+  try {
+    res.clearCookie("token");
+
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully",
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = { signup,login,getMe,logout};
+
+

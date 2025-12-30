@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const authRoutes = require("./routes/authRoutes");
+const adminRouter = require('./routes/adminRoutes');
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
+app.use("/admin", adminRouter);
 
 
 const PORT = process.env.PORT || 3000;
