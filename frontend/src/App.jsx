@@ -6,7 +6,6 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 
-// Move these outside App for clarity
 function RequireAuth({ children }) {
   const token = localStorage.getItem("token");
   if (!token) return <Navigate to="/login" replace />;
@@ -20,7 +19,6 @@ function RequireRole({ children, role }) {
   if (!token) return <Navigate to="/login" replace />;
 
   if (user.role !== role) {
-    // redirect to proper dashboard
     if (user.role === "admin") return <Navigate to="/admin" replace />;
     return <Navigate to="/dashboard" replace />;
   }

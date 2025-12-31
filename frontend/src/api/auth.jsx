@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://backend.usermanage.fwitech.com";
 
 export const signupAPI = (data) =>
   axios.post(`${BASE_URL}/auth/signup`, data);

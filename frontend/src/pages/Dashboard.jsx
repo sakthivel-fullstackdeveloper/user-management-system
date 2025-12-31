@@ -23,7 +23,7 @@ export default function Dashboard() {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:3000/user/me", {
+      .get("https://backend.usermanage.fwitech.com/user/me", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
@@ -48,7 +48,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        "http://localhost:3000/user/me",
+        "https://backend.usermanage.fwitech.com/user/me",
         { name: form.name, email: form.email },
         { headers: { Authorization: `Bearer ${token}` } }
       );

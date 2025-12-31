@@ -16,7 +16,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
+      const res = await axios.post("https://backend.usermanage.fwitech.com/auth/login", {
         email,
         password
       });

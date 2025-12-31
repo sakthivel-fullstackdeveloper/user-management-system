@@ -15,7 +15,7 @@ const AdminDashboard = () => {
       setLoading(true);
 
       const res = await axios.get(
-        `http://localhost:3000/admin/users?page=${page}&limit=${limit}`,
+        `https://backend.usermanage.fwitech.com/admin/users?page=${page}&limit=${limit}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -37,7 +37,7 @@ const AdminDashboard = () => {
 
   const activateUser = async (id) => {
     await axios.patch(
-      `http://localhost:3000/admin/users/${id}/activate`,
+      `https://backend.usermanage.fwitech.com/admin/users/${id}/activate`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
 
   const deactivateUser = async (id) => {
     await axios.patch(
-      `http://localhost:3000/admin/users/${id}/deactivate`,
+      `https://backend.usermanage.fwitech.com/admin/users/${id}/deactivate`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );

@@ -41,8 +41,6 @@ export default function Signup() {
       setLoading(true);
       await signupAPI(form);
 
-      // ⚠️ no toast shown here
-      // ⏩ redirect only
       navigate("/login");
     } catch (err) {
       setErrors({

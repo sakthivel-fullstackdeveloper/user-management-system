@@ -4,6 +4,7 @@
   "description": "A web application that manages users, roles, and permissions with secure authentication and admin controls.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
