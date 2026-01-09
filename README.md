@@ -5,7 +5,7 @@
 
 backend https://backend.usermanage.fwitech.com
 frontend https://usermanage.fwitech.com
-database mongodb+srv://vh12097it22:cokqNuSTX8BPbcBf@cluster81844.4salt.mongodb.net/
+database mongodb atlas
 
 ## 📌 1. Project Overview & Purpose
 

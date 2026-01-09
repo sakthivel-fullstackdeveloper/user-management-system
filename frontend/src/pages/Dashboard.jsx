@@ -79,7 +79,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.patch(
-        "http://localhost:3000/user/me/password",
+        "https://backend.usermanage.fwitech.com/user/me/password",
         {
           oldPassword: passwordForm.oldPassword,
           newPassword: passwordForm.newPassword
